@@ -3,6 +3,7 @@ const dotenv = require("dotenv")
 const connectDb = require("./config/db")
 const morgan = require("morgan")
 const ejs = require("ejs")
+const indexRoute = require("./routes/index")
 
 //load config
 dotenv.config({
@@ -26,7 +27,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs")
 
 //Routes
-app.use("/", require("./routes/index"))
+app.use("/", indexRoute)
 
 
 const PORT = process.env.PORT || 3000
