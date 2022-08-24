@@ -10,6 +10,8 @@
   "author": "Francis odero",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
     "connect-mongo": "^4.6.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",

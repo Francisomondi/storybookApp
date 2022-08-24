@@ -7,3 +7,8 @@
      margin-top: 50px;
      text-align: center;
  }
+
+ .navbar-brand img {
+     width: 30px;
+     height: 30px;
+ }

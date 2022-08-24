@@ -20,5 +20,17 @@ router.get('/google/callback',
         res.redirect('/dashboard');
     });
 
+//@description lout user
+//@route GET /auth/logout
+router.get('/logout', async (req, res) => {
+    req.logout((err) => {
+        if (err) {
+            console.log(err)
+        }
+        res.redirect("/")
+    })
+
+});
+
 
 module.exports = router
