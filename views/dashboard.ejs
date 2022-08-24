@@ -7,6 +7,25 @@
 
     <% if(stories.length>0){ %>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Dtatus</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="/stories/<%=stories._id %>"><%= stories.title %></a></td>
+                <td><%=stories.createdAt %></td>
+                <td> <span class="dash-status"><%= stories.status %></span> </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
     <% } else{ %>
     <p>you have not created any stories</p>
     <% } %>
