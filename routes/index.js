@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const story = require("../models/story")
 const {
     ensureAuth,
     ensureGuest
@@ -13,11 +14,21 @@ router.get("/", ensureGuest, (req, res) => {
 
 //@description dashboard
 //@route GET /dashboard
-router.get("/dashboard", ensureAuth, (req, res) => {
+router.get("/dashboard", ensureAuth, async (req, res) => {
     const User = req.user
-    res.render("dashboard", {
-        user: User
-    })
+    try {
+        const stories = await story.find({
+            user: User.id
+        }).lean()
+        res.render("dashboard", {
+            user: User,
+            stories: stories
+        })
+    } catch (err) {
+        console.log(err)
+    }
+
+
 })
 
 module.exports = router

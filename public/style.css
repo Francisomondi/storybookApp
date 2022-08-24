@@ -6,11 +6,13 @@
      width: 500px;
      margin-top: 50px;
      text-align: center;
+     flex-direction:
  }
 
  .navbar-brand img {
      width: 30px;
      height: 30px;
+
  }
 
  .bi-book-half {
