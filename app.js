@@ -1,14 +1,21 @@
 const express = require("express")
 const dotenv = require("dotenv")
-const connectDb = require("./config/db")
 const morgan = require("morgan")
-const ejs = require("ejs")
+const passport = require("passport")
+const session = require("express-session")
 const indexRoute = require("./routes/index")
+const authRoute = require("./routes/auth")
+const connectDb = require("./config/db")
+
 
 //load config
 dotenv.config({
     path: "./config/config.env"
 })
+
+//passport config
+require("./config/passport")(passport)
+
 connectDb()
 
 const app = express()
@@ -26,8 +33,20 @@ app.use(express.static("public"));
 //view engine
 app.set("view engine", "ejs")
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+
+}))
+
+//passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
 //Routes
 app.use("/", indexRoute)
+app.use("/auth", authRoute)
 
 
 const PORT = process.env.PORT || 3000
