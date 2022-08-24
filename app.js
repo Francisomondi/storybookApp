@@ -1,8 +1,10 @@
 const express = require("express")
+const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const morgan = require("morgan")
 const passport = require("passport")
 const session = require("express-session")
+const mongoStore = require('connect-mongo')
 const indexRoute = require("./routes/index")
 const authRoute = require("./routes/auth")
 const connectDb = require("./config/db")
@@ -36,7 +38,10 @@ app.set("view engine", "ejs")
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: mongoStore.create({
+        mongoUrl: process.env.MONGO_URI
+    })
 
 }))
 
