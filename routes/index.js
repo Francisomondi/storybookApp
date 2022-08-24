@@ -14,8 +14,10 @@ router.get("/", ensureGuest, (req, res) => {
 //@description dashboard
 //@route GET /dashboard
 router.get("/dashboard", ensureAuth, (req, res) => {
-    console.log(req.user)
-    res.render("dashboard")
+    const User = req.user
+    res.render("dashboard", {
+        user: User
+    })
 })
 
 module.exports = router
