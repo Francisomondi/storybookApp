@@ -7,6 +7,7 @@ const session = require("express-session")
 const mongoStore = require('connect-mongo')
 const indexRoute = require("./routes/index")
 const authRoute = require("./routes/auth")
+const storiesRoute = require("./routes/stories")
 const connectDb = require("./config/db")
 
 
@@ -52,6 +53,7 @@ app.use(passport.session())
 //Routes
 app.use("/", indexRoute)
 app.use("/auth", authRoute)
+app.use("/stories", storiesRoute)
 
 
 const PORT = process.env.PORT || 3000
