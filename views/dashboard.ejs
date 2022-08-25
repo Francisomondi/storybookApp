@@ -5,24 +5,29 @@
     <h3>Welcome <%=user.displayName %></h3>
     <p>Here are all your stories</p>
 
-    <% if(stories.length>0){ %>
+    <% if(stories){ %>
 
     <table>
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Date</th>
-                <th>Dtatus</th>
+                <th>Status</th>
+
                 <th></th>
             </tr>
         </thead>
         <tbody>
+            <%  stories.forEach(story=>{%>
+
             <tr>
-                <td><a href="/stories/<%=stories._id %>"><%= stories.title %></a></td>
-                <td><%=stories.createdAt %></td>
-                <td> <span class="dash-status"><%= stories.status %></span> </td>
+                <td><a href="/stories/<%=stories._id %>"><%= story.title %></a></td>
+                <td><%=story.createdAt %></td>
+                <td><%=story.status %></td>
+
                 <td></td>
             </tr>
+            <% })%>
         </tbody>
     </table>
 
