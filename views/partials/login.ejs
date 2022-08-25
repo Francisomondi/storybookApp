@@ -10,6 +10,13 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script>
+        M.sidenav.init(document.querySelector(".sidenav"))
+        M.FormSelect.init(document.querySelector("#status"))
+        CKEDITOR.replace("body", {
+            plugins: "wysiwygares,toolbar,basicstyles, link"
+        })
+    </script>
 
     <link rel="stylesheet" href="style.css">
     <title>Storybook App Login</title>
