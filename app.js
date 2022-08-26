@@ -34,8 +34,13 @@ app.use(express.urlencoded({
 app.use(express.json())
 app.use(express.static("public"));
 
+//ejs helpers
+const formatDate = require("./helpers/helper")
+
 //view engine
-app.set("view engine", "ejs")
+app.set("view engine", "ejs", {
+    formatDate
+})
 
 app.use(session({
     secret: 'keyboard cat',

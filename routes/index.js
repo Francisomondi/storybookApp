@@ -22,7 +22,7 @@ router.get("/dashboard", ensureAuth, async (req, res) => {
         }).lean()
         res.render("dashboard", {
             user: User,
-            stories
+            stories: stories
         })
     } catch (err) {
         console.log(err)

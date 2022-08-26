@@ -1,7 +1,7 @@
 <%- include("./partials/main.ejs") %>
 <div class="container">
 
-    <h1>Dashboard</h1>
+
     <h3>Welcome <%=user.displayName %></h3>
     <p>Here are all your stories</p>
 
@@ -21,9 +21,9 @@
             <%  stories.forEach(story=>{%>
 
             <tr>
-                <td><a href="/stories/<%=stories._id %>"><%= story.title %></a></td>
+                <td><a href="/stories/<%=story._id %>"><%= story.title %></a></td>
                 <td><%=story.createdAt %></td>
-                <td><%=story.status %></td>
+                <td><span class="dash-status"><%= story.status %></span></td>
 
                 <td></td>
             </tr>
